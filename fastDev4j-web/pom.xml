@@ -9,16 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fastDev4j-system</artifactId>
 
 
-    <dependencies>
-        <dependency>
-            <groupId>fastDev4j.palworld-server</groupId>
-            <artifactId>fastDev4j-commnon</artifactId>
-        </dependency>
-
-    </dependencies>
+    <artifactId>fastDev4j-web</artifactId>
+<dependencies>
+    <dependency>
+        <groupId>fastDev4j.palworld-server</groupId>
+        <artifactId>fastDev4j-system</artifactId>
+    </dependency>
+</dependencies>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

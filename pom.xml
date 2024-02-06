@@ -150,7 +150,17 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>fastDev4j.palworld-server</groupId>
+                <artifactId>fastDev4j-commnon</artifactId>
+                <version>${fastDev4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>fastDev4j.palworld-server</groupId>
+                <artifactId>fastDev4j-system</artifactId>
+                <version>${fastDev4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -159,6 +169,7 @@
 
         <module>fastDev4j-system</module>
         <module>fastDev4j-common</module>
+        <module>fastDev4j-web</module>
     </modules>
     <packaging>pom</packaging>
 
