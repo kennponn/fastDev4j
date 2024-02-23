@@ -1,14 +1,24 @@
 import request from '@/utils/request'
 
 /**
- * 注册
+ * 登录
  * @param {*} data
  * @returns
  */
-export function register(param) {
+export function login(param) {
     return request({
-      url: '/api/user/list',
+      url: '/api/login',
       method: 'get',
-      data:param
+      params:param
+    })
+  }
+  /**
+   * 注销
+   * @returns
+   */
+  export function logout() {
+    return request({
+      url: '/api/logout',
+      method: 'get'
     })
   }

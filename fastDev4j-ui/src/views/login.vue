@@ -23,7 +23,7 @@
         </el-form-item>
         <el-button @click="onSubmit()">登录</el-button>
       </el-form>
-      <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
+     
       <p>还没有帐号? <router-link to="/login">立即注册</router-link></p>
     </div>
   </div>
@@ -32,8 +32,9 @@
 <script setup>
 import { ElForm, ElInput, ElButton, ElMessage } from "element-plus";
 import { ref, reactive } from "vue";
-import { register } from "@/api/system";
-
+import { login } from "@/api/system";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const form = reactive({
   username: "",
   password: "",
@@ -56,8 +57,14 @@ const onSubmit = () => {
   if (userRef.value) {
     userRef.value.validate((valid) => {
       if (valid) {
-        register().then((response) => {
-          ElMessage.success(response.msg);
+     
+        login(form).then((response) => {
+          if(response.code==200){
+            ElMessage.success(response.msg);
+            localStorage.setItem("token", response.data);
+            router.push("/home");3
+          }else
+            ElMessage.error(response.msg);
         });
       } else {
         return false;
@@ -116,7 +123,8 @@ button {
 }
 
 button:hover {
-  background-color: #2980b9; /* 深蓝色 */
+  background-color: #000000; /* 深蓝色 */
+  color: #fff;
 }
 
 p {
